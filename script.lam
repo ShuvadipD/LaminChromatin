@@ -1,0 +1,110 @@
+#LAMMPS SCRIPT FOR LAMIN_CHROMATIN SIMULATION
+##################################################
+
+# Simulation basic definitions
+
+units lj
+atom_style angle
+boundary p p f
+neighbor 1.1 bin
+neigh_modify every 1 delay 1 check yes
+
+read_data data.input
+
+##################################################
+
+# Define groups
+
+group lamin type 3 # Lamina beads
+group chromatin subtract all lamin # Chromatin beads
+
+##################################################
+
+# Simulation box definition -- repulsive at z boundaries
+
+change_box all x final -10 10 y final -10 10 & 
+z final -17.5 17.5  boundary p p f units box
+
+fix wall1 chromatin wall/lj126 zhi EDGE 1.0 1.0 1.122462048 &
+zlo EDGE 1.0 1.0 1.122462048 units box
+
+fix wall2 lamin wall/lj126 zhi EDGE WL_INTERACTION 0.75 WL_CUTOFF &
+zlo EDGE 1.0 0.75 0.84 units box
+
+##################################################
+
+# Set Brownian dynamics
+
+fix 1 all nve
+fix 2 all langevin 1.0 1.0 1.0 REPLACE_SEED
+
+##################################################
+
+# Integrator
+
+timestep 0.005
+
+##################################################
+
+# Parallel computation details
+
+comm_style tiled
+fix bal all balance 100000 1.1 rcb
+
+##################################################
+
+# Dumps/output
+
+thermo 10000
+
+dump 1 all custom 100000 OUTPUT_SETNUMBER.dump id type xu yu zu
+dump_modify 1 sort id
+
+##################################################
+
+# Potentials and Runs
+
+bond_style fene
+special_bonds fene
+bond_coeff 1 30.0 1.6 1.0 1.0
+
+angle_style none #A flexible fibre
+
+pair_style lj/cut 2.5
+pair_modify shift yes
+
+
+# Set the strength of different interactions (HC-HC, HC-NL, EC-EC)
+
+pair_coeff 1 1 EE_INTERACTION 1.00 EE_CUTOFF
+pair_coeff 2 2 HH_INTERACTION 1.00 HH_CUTOFF
+pair_coeff 1 2 EH_INTERACTION 1.00 EH_CUTOFF
+pair_coeff 1 3 EL_INTERACTION 0.75 EL_CUTOFF
+pair_coeff 2 3 HL_INTERACTION 0.75 HL_CUTOFF
+
+variable epsilon_ll equal LL_INTERACTION
+
+pair_coeff 3 3 ${epsilon_ll} 0.50 LL_CUTOFF
+
+##################################################
+
+# Run
+
+run 10000000
+
+##################################################
+
+write_data OUPUT_SETNUMBER.out nocoeff
+write_restart OUTPUT_SETNUMBER.restart
+
+##################################################
+
+# Unfix/undump
+
+unfix wall1
+unfix wall2
+undump 1
+unfix 1
+unfix 2
+
+##################################################
