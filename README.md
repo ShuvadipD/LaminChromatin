@@ -1,9 +1,11 @@
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+
 # Coarse-Grained Chromatin–Lamin Simulation
 
 This repository describes the setup and simulation details for a coarse-grained model of chromatin and lamin interactions, inspired by experimental data from the mouse **C2C12** cell line (GRCm38/mm10).
 
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 <!-- Other sections -->
 
