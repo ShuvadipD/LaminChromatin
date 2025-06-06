@@ -2,6 +2,13 @@
 
 This repository describes the setup and simulation details for a coarse-grained model of chromatin and lamin interactions, inspired by experimental data from the mouse **C2C12** cell line (GRCm38/mm10).
 
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+<!-- Other sections -->
+
+
+
 ---
 
 ## 🧬 Coarse-Grained Model of Chromatin and Lamins
@@ -113,3 +120,7 @@ E_cut = -4ε[(σ/r_c)^12 - (σ/r_c)^6],  r_c = 1.12σ
 ## 📚 Reference
 
 Cardiomyopathic mutations of lamin A perturb mutual interactions of lamin, nuclear membrane, and chromatin leading to LLPS Subhradip Nath, Shuvadip Dutta, Shreyasi Dey Sarkar, Duhita Sengupta, Mithun K. Mitra, Kaushik Sengupta bioRxiv 2024.10.07.616979; doi: https://doi.org/10.1101/2024.10.07.616979 
+
+## License
+
+This repository is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
