@@ -123,7 +123,7 @@ E_cut = -4ε[(σ/r_c)^12 - (σ/r_c)^6],  r_c = 1.12σ
 
 Cardiomyopathic mutations of lamin A perturb mutual interactions of lamin, nuclear membrane, and chromatin leading to LLPS Subhradip Nath, Shuvadip Dutta, Shreyasi Dey Sarkar, Duhita Sengupta, Mithun K. Mitra, Kaushik Sengupta bioRxiv 2024.10.07.616979; doi: https://doi.org/10.1101/2024.10.07.616979 
 
-[![Figshare](https://img.shields.io/badge/Figshare-Data-orange?logo=figshare)](10.6084/m9.figshare.29063591)
+[![Figshare](https://img.shields.io/badge/Figshare-Data-orange?logo=figshare)]([10.6084/m9.figshare.29063591](https://figshare.com/articles/dataset/LaminChromatin/29063591}.))
 
 ## License
 
