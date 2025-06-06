@@ -17,17 +17,7 @@ This repository describes the setup and simulation details for a coarse-grained 
     - **Euchromatin (EC)**
     - **Heterochromatin (HC)**
 
-Classification is based on **H3K9me3 ChIP-seq** enrichment [[Beyer et al., 2016]](https://doi.org/10.1016/j.celrep.2016.06.081).
-
-#### HC Fraction Calculation (`f_HC`)
-- Chromosome segments were binned into **2140 × 5kb** windows.
-- A bin is HC if ≥ 50% of it is enriched in H3K9me3.
-- `f_HC` = fraction of HC beads out of 2140.
-
-### Random Block Copolymer Control
-
-- Segment = block of 20 consecutive beads.
-- Beads randomly labeled EC or HC based on `f_HC`.
+Bead classification is based on **H3K9me3 ChIP-seq** enrichment.
 
 ### Lamin Model
 
@@ -113,13 +103,13 @@ E_cut = -4ε[(σ/r_c)^12 - (σ/r_c)^6],  r_c = 1.12σ
 | Interaction Type        | Potential Used | Notes |
 |-------------------------|----------------|-------|
 | Chromatin–Chromatin     | LJ / WCA       | EC–EC, HC–HC, HC–EC types |
-| Lamin–Lamin             | LJ / WCA       | Short-range attraction |
-| Chromatin–Lamin         | LJ / WCA       | HC-specific attractive interaction |
-| Wall (Top)–Lamin        | LJ             | Simulates membrane |
+| Lamin–Lamin             | LJ             |
+| Chromatin–Lamin         | LJ / WCA       | HC-Lamin attractive interaction |
+| Wall (Top)–Lamin        | LJ / WCA       | Simulates membrane |
 | Wall (Bottom)–All       | WCA            | No penetration |
 
 ---
 
 ## 📚 Reference
 
-Beyer, T. A., et al. (2016). *Canonical histone marks are predictive of chromatin architecture*. Cell Reports, 17(2), 307-320. https://doi.org/10.1016/j.celrep.2016.06.081
+Cardiomyopathic mutations of lamin A perturb mutual interactions of lamin, nuclear membrane, and chromatin leading to LLPS Subhradip Nath, Shuvadip Dutta, Shreyasi Dey Sarkar, Duhita Sengupta, Mithun K. Mitra, Kaushik Sengupta bioRxiv 2024.10.07.616979; doi: https://doi.org/10.1101/2024.10.07.616979 
